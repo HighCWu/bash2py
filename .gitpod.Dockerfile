@@ -1,9 +1,5 @@
 FROM imiell/bash2py
 
-COPY sources.init.list /etc/apt/sources.list
-
-RUN apt-get update && apt-get install --only-upgrade debian-archive-keyring -yq
-
 COPY sources.list /etc/apt/sources.list
 
 # Install:
