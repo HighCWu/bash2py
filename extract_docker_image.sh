@@ -1,3 +1,5 @@
+mkdir -p /root/tmp
+cd /root/tmp
 git clone https://github.com/jjlin/docker-image-extract
 cd docker-image-extract
 ./docker-image-extract -o ../output imiell/bash2py
