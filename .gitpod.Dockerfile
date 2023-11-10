@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:buster
 RUN apt-get -y update && \
     apt-get -y install zip build-essential autoconf bison python vim git && \
     apt-get clean
