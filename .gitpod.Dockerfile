@@ -1,8 +1,11 @@
 FROM gitpod/workspace-full
 
-RUN sudo mkdir -p /root/tmp
-COPY extract_docker_image.sh /root/tmp/extract_docker_image.sh
-WORKDIR /root/tmp
-RUN sudo extract_docker_image.sh
-RUN sudo rm -rf /root/tmp
+RUN mkdir -p /workspace/tmp
+RUN git clone https://github.com/jjlin/docker-image-extract
+WORKDIR /workspace/tmp/docker-image-extract
+RUN ./docker-image-extract -o ../output imiell/bash2py
+WORKDIR /workspace/tmp
+RUN sudo cp -r output/root/bin/* /root/bin/
+RUN sudo cp -r output/opt/* /opt/
+RUN rm -rf /workspace/tmp
 WORKDIR /workspace
