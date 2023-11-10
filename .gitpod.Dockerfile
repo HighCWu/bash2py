@@ -1,8 +1,10 @@
 FROM imiell/bash2py
 
-COPY sources.list /etc/apt/sources.list
+COPY sources.init.list /etc/apt/sources.list
 
-RUN apt-get install debian-archive-keyring
+RUN apt-get update && apt-get install --only-upgrade debian-archive-keyring -yq
+
+COPY sources.list /etc/apt/sources.list
 
 # Install:
 # - git (and git-lfs), for git operations (to e.g. push your work).
